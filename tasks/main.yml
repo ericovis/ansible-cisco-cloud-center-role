@@ -3,7 +3,7 @@
 
 - name: Setting hostname
   hostname:
-    name: {{ hostname }}
+    name: "{{ hostname }}"
   become: yes
   when: hostname != ''
 
