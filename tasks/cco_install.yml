@@ -13,7 +13,7 @@
   debug: msg='trigger machine reboot sequence'
   notify:
     - reboot sequence
-  when: reboot? == true
+  when: reboot == true
 
 - name: Configure Connection properties
   shell: "python config_conn_properties.py '{{ amqp_dns_name }}' '7788' '7789' > /tmp/logs/config_conn.log"

@@ -4,7 +4,7 @@
 component: ccm
 cloud_provider: amazon
 os: centos7
-reboot?: false
+reboot: false
 
 cco_to_rabbit_port: 5671
 

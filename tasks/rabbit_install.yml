@@ -13,7 +13,7 @@
   debug: msg='trigger machine reboot sequence'
   notify:
     - reboot sequence
-  when: reboot? == true
+  when: reboot == true
 
 - name: Configure Gateway properties
   shell: "python config_amqp_gateway_properties.py '{{ ccm_dns_name }}' > /tmp/logs/config_gateway.log"

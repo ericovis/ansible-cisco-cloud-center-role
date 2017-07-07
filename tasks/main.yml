@@ -28,4 +28,4 @@
   debug: msg='trigger machine reboot sequence'
   notify:
     - reboot sequence
-  when: reboot? == true
+  when: reboot == true

@@ -13,7 +13,7 @@
   debug: msg='trigger machine reboot sequence'
   notify:
     - reboot sequence
-  when: reboot? == true
+  when: reboot == true
 
 - name: Configure Mail properties
   shell: "python config_mail_properties.py '{{ smtp_server }}' '{{smtp_user}}' '{{smtp_password}}' > /tmp/logs/config_mail.log"
