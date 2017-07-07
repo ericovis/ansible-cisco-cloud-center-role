@@ -1,5 +1,10 @@
 --- # Install the CCM
 
+- name: Changing hostname
+  hostname:
+    name: "{{ ccm_hostname }}"
+  become: yes
+
 - name: Run the appliance installer to setup the CCM
   shell: /usr/lib/jvm/java-8-sun/bin/java -jar ccm-installer.jar ccm-response.xml > /tmp/logs/ccm-installer.log
   become: yes
