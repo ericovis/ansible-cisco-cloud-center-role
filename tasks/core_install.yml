@@ -1,0 +1,5 @@
+--- # Install the core packages
+
+- name: Install the core packages
+  shell: "/tmp/core_installer.bin {{os}} {{cloud_provider}} {{ component }} > /tmp/logs/core_installer.log"
+  become: yes

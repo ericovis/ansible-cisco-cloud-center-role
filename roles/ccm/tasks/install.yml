@@ -1,0 +1,43 @@
+--- # Install the CCM
+
+- name: Update yum cache and upgrade packages
+  yum:
+    name: '*'
+    state: latest
+    update_cache: yes
+    skip_broken: yes
+  become: yes
+
+- name: Install the CCM core packages
+  shell: "/tmp/core_installer.bin {{os}} {{cloud_provider}} ccm > /tmp/logs/core_installer.log"
+  become: yes
+
+- name: Run the appliance installer to setup the CCM
+  shell: /usr/lib/jvm/java-8-sun/bin/java -jar ccm-installer.jar ccm-response.xml > /tmp/logs/ccm-installer.log
+  become: yes
+  args:
+    chdir: /tmp
+  environment:
+    JAVA_HOME: /usr/lib/jvm/java-8-sun
+  notify:
+    - reboot sequence
+
+- name: Configure Mail properties
+  shell: "python config_mail_properties.py '{{ smtp_server }}' '{{smtp_user}}' '{{smtp_password}}' > /tmp/logs/config_mail.log"
+  args:
+    chdir: /tmp
+  become: yes
+
+- name: Configure Server properties
+  shell: "python config_server_properties.py '{{ inventory_hostname }}' '{{public_url}}' '{{monitor_url}}' > /tmp/logs/config_server.log"
+  args:
+    chdir: /tmp
+  become: yes
+
+- name: Configure Management properties
+  shell: "python config_mgmt_properties.py"
+  args:
+    chdir: /tmp
+  notify:
+    - reboot sequence
+  become: yes

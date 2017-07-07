@@ -1,0 +1,38 @@
+--- # Install the CCM
+
+- name: Update yum cache and upgrade packages
+  yum:
+    name: '*'
+    state: latest
+    update_cache: yes
+    skip_broken: yes
+  become: yes
+
+
+- name: Install the CCM core packages
+  shell: "/tmp/core_installer.bin {{os}} {{cloud_provider}} rabbit > /tmp/logs/core_installer.log"
+  become: yes
+
+- name: Run the appliance installer to setup the AMPQ
+  shell: /usr/lib/jvm/java-8-sun/bin/java -jar cco-installer.jar conn_broker-response.xml > /tmp/logs/conn_broker-response.log
+  become: yes
+  args:
+    chdir: /tmp
+  environment:
+    JAVA_HOME: /usr/lib/jvm/java-8-sun
+  notify:
+    - reboot sequence
+
+- name: Configure Gateway properties
+  shell: "python config_amqp_gateway_properties.py '{{ ccm_dns_name }}' > /tmp/logs/config_gateway.log"
+  args:
+    chdir: /tmp
+  become: yes
+
+- name: Configure Guacamole Server properties
+  shell: "python config_gua_properties.py '{{ cco_dns_name }}' > /tmp/logs/config_gua_server.log"
+  args:
+    chdir: /tmp
+  become: yes
+  notify:
+    - reboot sequence

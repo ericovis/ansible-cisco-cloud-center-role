@@ -1,0 +1,12 @@
+---
+# tasks file for cloudcenter
+
+- name: Setting hostname
+  hostname:
+    name: amqp
+  become: yes
+  notify:
+    - reboot sequence
+
+- include: files.yml
+- include: install.yml

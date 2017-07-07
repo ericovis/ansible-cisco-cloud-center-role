@@ -1,0 +1,5 @@
+---
+# vars file for cco
+
+ccm_hostname: ccm
+monitor_id: 1

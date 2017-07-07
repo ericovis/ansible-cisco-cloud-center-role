@@ -1,2 +1,13 @@
 ---
 # defaults file for cloud-center
+
+component: ccm
+cloud_provider: amazon
+os: centos7
+reboot?: false
+
+cco_to_rabbit_port: 5671
+
+ccm_dns_name:
+cco_dns_name:
+amqp_dns_name:

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutomatedInstallation langpack="eng">
+<com.izforge.izpack.panels.htmlinfo.HTMLInfoPanel id="welcome"/>
+<com.izforge.izpack.panels.target.TargetPanel id="install_dir">
+<installpath>/usr/local/osmosix</installpath>
+</com.izforge.izpack.panels.target.TargetPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="install_options">
+<userInput>
+<entry key="cco_enable" value="true"/>
+<entry key="guacamole_enable" value="false"/>
+<entry key="conn_broker_enable" value="false"/>
+<entry key="rabbit_host" value="default"/>
+<entry key="rabbit_port" value="default"/>
+<entry key="docker_host" value="default"/>
+<entry key="docker_port" value="default"/>
+<entry key="conn_broker_host" value="default"/>
+<entry key="conn_broker_port1" value="default"/>
+<entry key="conn_broker_port2" value="default"/>
+<entry key="ccm_host" value="default"/>
+<entry key="cco_host" value="default"/>
+<entry key="cert_path" value="default"/>
+</userInput>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.packs.PacksPanel id="sdk_pack_select">
+<pack index="0" name="SSL" selected="true"/>
+<pack index="1" name="Core" selected="true"/>
+<pack index="2" name="post" selected="true"/>
+</com.izforge.izpack.panels.packs.PacksPanel>
+<com.izforge.izpack.panels.install.InstallPanel id="install"/>
+<com.izforge.izpack.panels.finish.FinishPanel id="finish"/>
+</AutomatedInstallation>

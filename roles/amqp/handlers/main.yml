@@ -1,5 +1,5 @@
 ---
-# handlers file for cloud-center
+# handlers file for cloudcenter
 
 - name: reboot sequence
   changed_when: "true"
