@@ -1,6 +1,6 @@
 galaxy_info:
   author: ericovis
-  description: Ansible role for installing the Cisco's Cloud Center CCM
+  description: Ansible role for installing Cisco's Cloud Center components
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
