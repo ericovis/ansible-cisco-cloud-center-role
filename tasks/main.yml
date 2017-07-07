@@ -1,20 +1,6 @@
 ---
 # tasks file for cloud-center
 
-- name: Setting hostname
-  hostname:
-    name: "{{ hostname }}"
-  become: yes
-  when: hostname != ''
-
-- name: Rebooting
-  changed_when: "true"
-  debug: msg='trigger machine reboot sequence'
-  notify:
-    - reboot sequence
-  when: reboot? == true
-
-
 - include: core_files.yml
 
 - include: rabbit_files.yml
