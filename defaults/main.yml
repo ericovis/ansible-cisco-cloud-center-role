@@ -11,3 +11,10 @@ cco_to_rabbit_port: 5671
 ccm_dns_name:
 cco_dns_name:
 amqp_dns_name:
+
+smtp_server:
+smtp_user:
+smtp_password:
+monitor_url:
+
+ccm_public_url:

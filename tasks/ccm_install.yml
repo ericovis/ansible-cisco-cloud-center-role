@@ -22,7 +22,7 @@
   become: yes
 
 - name: Configure Server properties
-  shell: "python config_server_properties.py '{{ inventory_hostname }}' '{{public_url}}' '{{monitor_url}}' > /tmp/logs/config_server.log"
+  shell: "python config_server_properties.py '{{ inventory_hostname }}' '{{ccm_public_url}}' '{{monitor_url}}' > /tmp/logs/config_server.log"
   args:
     chdir: /tmp
   become: yes
