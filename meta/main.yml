@@ -33,11 +33,7 @@ galaxy_info:
   # platforms is a list of platforms, and each platform has a name and a list of versions.
   #
   platforms:
-    - name: RHEL
-      versions:
-        - 6
-        - 7
-    - name: Centos
+    - name: EL
       versions:
         - 6
         - 7
