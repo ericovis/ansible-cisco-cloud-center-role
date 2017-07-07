@@ -18,3 +18,5 @@ smtp_password:
 monitor_url:
 
 ccm_public_url:
+ccm_hostname: default
+monitor_id: 1
